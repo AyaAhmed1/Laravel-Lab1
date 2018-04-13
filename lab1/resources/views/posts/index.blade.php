@@ -1,19 +1,14 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-      
-    </head>
-    <body>
-     <h1> All Posts </h1> 
+@extends('layouts.master')
+
+
+@section('content')
+
+     
      <br>
-     <br>  
-     <br>
-   
+   <div align="center">
+   <button type="button" class="btn btn-success" onclick="window.location.href='posts/create'" >Create Post</button>
+   </div>
+   <br/>
      <table class="table">
      <thead class="thead-dark">
     <tr>
@@ -39,6 +34,4 @@
     @endforeach
      </table>   
 
-     
-    </body>
-</html>
+ @endsection
