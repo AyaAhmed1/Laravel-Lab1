@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
 
@@ -17,14 +18,13 @@ class PostsController extends Controller
             'description'=> 'neeew',
             'user_id'=>1
         ]));
-*/
+        */
 //dd(Post::all());
-
         $posts=Post::all();
         return view ('posts.index',[
             'posts' => $posts
         ]);
-       
+    
    }
 
    public function create(){
@@ -36,7 +36,6 @@ class PostsController extends Controller
    }
 
    public function store(Request $request){
-      
        // dd($request->user);  
     Post::create([
         'title'=>$request->title,
@@ -45,4 +44,19 @@ class PostsController extends Controller
     ]);
     return redirect('posts'); 
    }
+   public function edit(Request $request){
+    //  dd("edit");
+    $post_id= addslashes($request->id) ;
+    $posts=Post::all();
+    $users=User::all();
+    $post=$posts->where('id', $post_id);;
+    //return $post ;
+
+    return view('posts.edit',[
+        'post'=>$post,
+         'users'=>$users
+
+    ]);
+    
+  } 
 }
