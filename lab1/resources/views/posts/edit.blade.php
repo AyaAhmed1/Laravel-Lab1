@@ -6,12 +6,11 @@
 <div class="col-2"> </div>
 <dic class="col-8">
 @foreach ($post as $ps)
-      <span> {{$ps->description}} </span>
-
-
-
-<form method="post" action="/posts"> 
+  
+<form method="post" action="/posts/update"> 
 {{csrf_field()}}
+<input type="hidden" name="_method" value="PATCH">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="form-group">
     <label>Title</label>
     <input type="text" name="title" class="form-control" aria-describedby="emailHelp" value="{{$ps->title}}">
@@ -30,6 +29,8 @@
 
   <button type="submit" class="btn btn-success">Submit</button>
   @endforeach
+      <input type="hidden" name="id" value="{{$ps->id}}">
+
 </form>
 
 </div>

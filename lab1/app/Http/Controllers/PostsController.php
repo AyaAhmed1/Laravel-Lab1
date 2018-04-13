@@ -24,9 +24,7 @@ class PostsController extends Controller
         return view ('posts.index',[
             'posts' => $posts
         ]);
-    
    }
-
    public function create(){
      //  dd("create");
      $users=User::all();
@@ -51,12 +49,23 @@ class PostsController extends Controller
     $users=User::all();
     $post=$posts->where('id', $post_id);;
     //return $post ;
-
     return view('posts.edit',[
         'post'=>$post,
          'users'=>$users
-
     ]);
-    
   } 
+  public function update(Request $request){
+    //  return $request;
+ 
+
+      DB::table('posts')
+      ->where('id', $request->id)
+      ->update([
+          'title' => $request->title,
+          'description' => $request->description ,
+        
+          ]); 
+          return redirect('posts'); 
+      
+  }
 }
