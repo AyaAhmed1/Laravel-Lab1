@@ -71,4 +71,10 @@ class PostsController extends Controller
     ]);
 
   }
+
+  public function delete(Request $request){
+    $post_id= addslashes($request->id) ;
+    DB::table('posts')->where('id',$post_id )->delete();
+   return redirect('posts');
+  }
 }

@@ -28,10 +28,24 @@
    <td> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}} </td>
    <td>     <button type="button" class="btn btn-info" onclick="window.location.href='posts/{{$post->id}}'">View</button>
  <button type="button" class="btn btn-primary" onclick="window.location.href='posts/{{$post->id}}/edit'">Edit</button> 
- <button type="button" class="btn btn-danger">Delete</button>
+ <button type="button" id="{{$post->id}}" class="del btn btn-danger" >Delete</button>
  </td>
     </tr>
     @endforeach
      </table>   
+<script>
+
+$(".del").on('click',function(){
+  var check=confirm("Are you sure you want to delete ");
+  if(check)
+{
+ var post_id=($(this).attr('id'))
+ window.location.href = '/posts/'+post_id+'/delete';
+  
+  }
+})
+
+
+</script>
 
  @endsection
