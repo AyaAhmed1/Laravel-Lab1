@@ -24,8 +24,8 @@
     <td> {{$post->id}} </td>
     <td> {{$post->title}} </td>
     <td> {{$post->user->name}}  </td>
-
-   <td> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}} </td>
+    <td> {{ $post->human_readable }} </td>
+  <!-- <td> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}} </td>-->
    <td>     <button type="button" class="btn btn-info" onclick="window.location.href='posts/{{$post->id}}'">View</button>
  <button type="button" class="btn btn-primary" onclick="window.location.href='posts/{{$post->id}}/edit'">Edit</button> 
  <button type="button" id="{{$post->id}}" class="del btn btn-danger" >Delete</button>

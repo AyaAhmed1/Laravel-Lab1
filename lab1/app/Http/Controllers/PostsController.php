@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StorePostRequest;
 use App\Post;
 use App\User;
 
@@ -34,8 +35,21 @@ class PostsController extends Controller
      ]);
    }
 
-   public function store(Request $request){
-       // dd($request->user);  
+   public function store(StorePostRequest $request){
+      // dd($request);  
+       //key name in the form 
+       /*
+       //make class validation
+       $request->validate([
+           //$validator = Validator::make($input, $rules, $messages);  
+
+            'title' => 'required |min:3|max:5 ',
+            'description' => 'required'
+       ],[
+           'title.required'=>'required  feild',
+           'title.min' =>"Min is 3 charachters"
+       ]);
+       */
     Post::create([
         'title'=>$request->title,
         'description'=> $request->description,
@@ -77,5 +91,5 @@ class PostsController extends Controller
     $post_id= addslashes($request->id) ;
     DB::table('posts')->where('id',$post_id )->delete();
    return redirect('posts');
-  }
+  } 
 }
