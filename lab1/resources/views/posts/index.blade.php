@@ -24,7 +24,7 @@
     <td> {{$post->id}} </td>
     <td> {{$post->title}} </td>
     <td> {{$post->user->name}}  </td>
-    <!--<td> {{$post ->created_at}} </td>-->
+
    <td> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}} </td>
    <td>     <button type="button" class="btn btn-info" onclick="window.location.href='posts/{{$post->id}}'">View</button>
  <button type="button" class="btn btn-primary" onclick="window.location.href='posts/{{$post->id}}/edit'">Edit</button> 
@@ -32,7 +32,10 @@
  </td>
     </tr>
     @endforeach
-     </table>   
+
+    
+     </table>
+     {{ $posts->links() }}
 <script>
 
 $(".del").on('click',function(){

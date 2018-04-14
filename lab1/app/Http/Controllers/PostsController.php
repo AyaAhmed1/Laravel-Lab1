@@ -20,8 +20,9 @@ class PostsController extends Controller
         ]));
         */
 //dd(Post::all());
-        $posts=Post::all();
-        return view ('posts.index',[
+        $posts=Post::paginate(3);
+      // $posts = DB::table('posts')->paginate(15); 
+       return view ('posts.index',[
             'posts' => $posts
         ]);
    }
