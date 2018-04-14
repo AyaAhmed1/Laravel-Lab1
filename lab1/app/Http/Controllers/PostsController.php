@@ -48,24 +48,27 @@ class PostsController extends Controller
     $posts=Post::all();
     $users=User::all();
     $post=$posts->where('id', $post_id);;
-    //return $post ;
     return view('posts.edit',[
         'post'=>$post,
-         'users'=>$users
     ]);
   } 
   public function update(Request $request){
-    //  return $request;
- 
-
+    $post_id= addslashes($request->id) ;
       DB::table('posts')
-      ->where('id', $request->id)
+      ->where('id', $post_id)
       ->update([
           'title' => $request->title,
           'description' => $request->description ,
-        
           ]); 
-          return redirect('posts'); 
-      
+          return redirect("posts/$post_id"); 
+  }
+  public function show(Request $request){
+    $post_id= addslashes($request->id) ;
+    $posts=Post::all();
+    $post=$posts->where('id', $post_id);;
+    return view('posts.show',[
+        'post'=>$post,
+    ]);
+
   }
 }

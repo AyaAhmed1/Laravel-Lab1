@@ -7,7 +7,7 @@
 <dic class="col-8">
 @foreach ($post as $ps)
   
-<form method="post" action="/posts/update"> 
+<form method="post" action="/posts/{{$ps->id}}"> 
 {{csrf_field()}}
 <input type="hidden" name="_method" value="PATCH">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -29,8 +29,6 @@
 
   <button type="submit" class="btn btn-success">Submit</button>
   @endforeach
-      <input type="hidden" name="id" value="{{$ps->id}}">
-
 </form>
 
 </div>

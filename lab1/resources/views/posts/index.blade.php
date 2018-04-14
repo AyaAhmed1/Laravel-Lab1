@@ -26,7 +26,7 @@
     <td> {{$post->user->name}}  </td>
     <!--<td> {{$post ->created_at}} </td>-->
    <td> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}} </td>
-   <td>     <button type="button" class="btn btn-info">View</button>
+   <td>     <button type="button" class="btn btn-info" onclick="window.location.href='posts/{{$post->id}}'">View</button>
  <button type="button" class="btn btn-primary" onclick="window.location.href='posts/{{$post->id}}/edit'">Edit</button> 
  <button type="button" class="btn btn-danger">Delete</button>
  </td>
