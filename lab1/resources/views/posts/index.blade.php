@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 
 @section('content')
@@ -16,6 +16,7 @@
       <th > Title</th>
       <th >PostedBy</th>
       <th > Created at</th>
+      <th > Slug</th>
       <th> Actions </th>
     </tr>
   </thead>
@@ -25,10 +26,16 @@
     <td> {{$post->title}} </td>
     <td> {{$post->user->name}}  </td>
     <td> {{ $post->human_readable }} </td>
+    <td> {{ $post->slug }} </td>
+
   <!-- <td> {{ \Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}} </td>-->
    <td>     <button type="button" class="btn btn-info" onclick="window.location.href='posts/{{$post->id}}'">View</button>
  <button type="button" class="btn btn-primary" onclick="window.location.href='posts/{{$post->id}}/edit'">Edit</button> 
- <button type="button" id="{{$post->id}}" class="del btn btn-danger" >Delete</button>
+ <form id="target" method="post" action="posts/{{$post->id}}" >
+ {{csrf_field()}}
+ {{method_field("Delete")}}
+ <button type="submit" id="{{$post->id}}" class="del btn btn-danger"  >Delete</button>
+ </form>
  </td>
     </tr>
     @endforeach
@@ -36,19 +43,41 @@
     
      </table>
      {{ $posts->links() }}
-<script>
 
-$(".del").on('click',function(){
+
+
+
+
+
+
+
+
+
+
+
+<script>
+/*
+$('#target').on('click',function(){
   var check=confirm("Are you sure you want to delete ");
   if(check)
 {
  var post_id=($(this).attr('id'))
- window.location.href = '/posts/'+post_id+'/delete';
   
   }
 })
 
+$('#target').submit(function( event ) {
+  event.preventDefault();
+  var check=confirm("Are you sure you want to delete ");
+  if(check)
+{
+ var post_id=($(this).find("button").attr('id'))
 
-</script>
+  //action="posts/{{$post->id}}
+  window.location.href = 'posts/'+post_id; 
+}
+});
+*/
+</script> 
 
  @endsection

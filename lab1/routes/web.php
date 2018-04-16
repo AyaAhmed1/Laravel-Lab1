@@ -14,11 +14,14 @@
 Route::get('/', function () {
    return 'hello posts';
 });
-Route::get('posts','PostsController@index')->name('posts.index');
-Route::get('posts','PostsController@index'); 
-Route::get('posts/create','PostsController@create');
-Route::post('posts','PostsController@store');
-Route::get('posts/{id}/edit','PostsController@edit');
-Route::patch('posts/{id}','PostsController@update');
-Route::get('posts/{id}','PostsController@show');
-Route::get('posts/{id}/delete','PostsController@delete');
+Route::get('posts','PostsController@index')->name('posts.index')->middleware('auth'); 
+//Route::get('posts','PostsController@index')->middleware('auth'); 
+Route::get('posts/create','PostsController@create')->middleware('auth');
+Route::post('posts','PostsController@store')->middleware('auth');
+Route::get('posts/{id}/edit','PostsController@edit')->middleware('auth');
+Route::patch('posts/{id}','PostsController@update')->middleware('auth');
+Route::get('posts/{id}','PostsController@show')->middleware('auth');
+Route::delete('posts/{id}','PostsController@destroy')->middleware('auth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

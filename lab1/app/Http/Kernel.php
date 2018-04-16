@@ -50,6 +50,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    //msh 3la ay request
     protected $routeMiddleware = [
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
