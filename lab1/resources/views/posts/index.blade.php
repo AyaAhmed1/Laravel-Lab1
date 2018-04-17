@@ -2,8 +2,6 @@
 
 
 @section('content')
-
-     
      <br>
    <div align="center">
    <button type="button" class="btn btn-success" onclick="window.location.href='posts/create'" >Create Post</button>
@@ -43,17 +41,6 @@
     
      </table>
      {{ $posts->links() }}
-
-
-
-
-
-
-
-
-
-
-
 
 <script>
 /*
