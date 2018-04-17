@@ -37,26 +37,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    /*
-    public function redirectToProvider()
-    {
-        return Socialite::driver('github')->redirect();
-    }
-
-    public function handleProviderCallback()
-    {
-        $user = Socialite::driver('github')->user();
-        dd($user);
-        
-       /* return User::create([
-            'name' => $user->nickname,
-            'email' => ,
-            'password'=> '1234560',
-            'remember_token'=>$user->token
-             
-        ]);
-        
-        // $user->token;
-    }
-    */
 }

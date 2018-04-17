@@ -11,7 +11,7 @@ class SocialAccountService
         $account = LinkedSocialAccount::where('provider_name', $provider)
                    ->where('provider_id', $providerUser->getId())
                    ->first();
-
+       // dd($account);
         if ($account) {
             return $account->user;
         } else {
