@@ -45,7 +45,7 @@ class PostsController extends Controller
     ]);
   } 
   public function update(UpdatePostRequest $request){
-     return $request;
+    // return $request;
     $post_id= $request->id ;
       DB::table('posts')
       ->where('id', $post_id)

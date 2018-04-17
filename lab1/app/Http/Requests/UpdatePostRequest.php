@@ -24,7 +24,7 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => 'required|min:3 |unique:posts,title,'.$this->id,
             'description' => 'required',
-            'user'=>'exists:users,id'
+          //  'user'=>'exists:users,id'
           
         ];
     }

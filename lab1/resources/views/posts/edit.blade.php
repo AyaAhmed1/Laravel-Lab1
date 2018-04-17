@@ -29,7 +29,7 @@
 
  <div class="form-group">
     <label>Post Creator</label>
-    <input type="text" name="user" class="form-control" value="{{$ps->user->name}}">
+    <input type="text" name="user" class="form-control" value="{{$ps->user->id}}">
 
 
   </div>

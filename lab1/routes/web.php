@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-   return 'hello posts';
+    return view('welcome');
 });
 Route::get('posts','PostsController@index')->name('posts.index')->middleware('auth'); 
 //Route::get('posts','PostsController@index')->middleware('auth'); 
