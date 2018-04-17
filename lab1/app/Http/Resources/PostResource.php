@@ -14,17 +14,12 @@ class PostResource extends JsonResource
      */
     public function toArray($request)
     {
-       // return parent::toArray($request);
-            return [
+       return parent::toArray($request);
+        /*    return [
                 'title'=>$this->title,
                 'description'=>$this->description,
                 'creared_at'=>$this->created_at
-               // ,'user'=> $this->user
-                //new User(User::find($this->user_id)),
-                // return new UserResource(User::find(1));
-                //blf 3la object object
-              //  'my_new_title'=>$this->title,
-                //'user'=>new usr($this ->user)
-                        ];
+              ,'user'=> $this->user
+            ];*/
     }
 }
